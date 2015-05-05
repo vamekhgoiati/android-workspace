@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:container="urn:import:com.sencha.gxt.widget.core.client.container"
+	xmlns:button="urn:import:com.sencha.gxt.widget.core.client.button"
+	xmlns:gxt="urn:import:com.sencha.gxt.widget.core.client" 
+	xmlns:toolbar="urn:import:com.sencha.gxt.widget.core.client.toolbar"
+	xmlns:menu="urn:import:com.sencha.gxt.widget.core.client.menu"
+	xmlns:tb="urn:import:com.sencha.gxt.widget.core.client.toolbar"
+	xmlns:grid="urn:import:com.sencha.gxt.widget.core.client.grid"
+	xmlns:form="urn:import:com.sencha.gxt.widget.core.client.form"
+	xmlns:row="urn:import:com.sencha.gxt.widget.core.client.container">
+
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.ColumnModel"
+		field="cmType" />
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.grid.CheckBoxSelectionModel"
+		field="smType" />
+	<ui:with type="com.sencha.gxt.data.shared.loader.PagingLoader"
+		field="loaderType" />
+	<ui:with type="com.sencha.gxt.data.shared.ListStore" field="storeType" />
+	
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.ColumnModel"
+		field="cmInst" />
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.grid.CheckBoxSelectionModel"
+		field="smInst" />
+	<ui:with type="com.sencha.gxt.data.shared.loader.PagingLoader"
+		field="loaderInst" />
+	<ui:with type="com.sencha.gxt.data.shared.ListStore" field="storeInst" />
+
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.ColumnModel"
+		field="cmTemplate" />
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.grid.CheckBoxSelectionModel"
+		field="smTemplate" />
+	<ui:with type="com.sencha.gxt.data.shared.loader.PagingLoader"
+		field="loaderTemplate" />
+	<ui:with type="com.sencha.gxt.data.shared.ListStore" field="storeTemplate" />
+
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.ColumnModel"
+		field="cmReturn" />
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.grid.CheckBoxSelectionModel"
+		field="smReturn" />
+	<ui:with type="com.sencha.gxt.data.shared.loader.PagingLoader"
+		field="loaderReturn" />
+	<ui:with type="com.sencha.gxt.data.shared.ListStore" field="storeReturn" />
+	 
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="margins5">
+		<ui:attributes top="5" right="5" bottom="5" left="5" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="buttonMargins">
+		<ui:attributes top="5" right="5" bottom="5" left="5" />
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="margins0">
+		<ui:attributes top="0" right="0" bottom="0" left="0" />
+	</ui:with>
+	<ui:with type="com.sencha.gxt.core.client.util.Margins" field="margins0500">
+		<ui:attributes top="0" right="5" bottom="0" left="0" />
+	</ui:with>
+	<ui:with type="com.sencha.gxt.core.client.util.Padding" field="padding5">
+		<ui:attributes top="5" right="5" bottom="5" left="5" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData"
+		field="westData">
+		<ui:attributes size="150" margins="{buttonMargins}" />
+	</ui:with>
+	<ui:with type="com.sencha.gxt.widget.core.client.container.MarginData"
+		field="centerData">
+		<ui:attributes margins="{margins5}" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="buttonBoxLayoutData">
+		<ui:attributes margins="{margins5}"/>
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="boxLayoutDataMargins0500">
+		<ui:attributes margins="{margins0500}" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="boxLayoutDataMargins0500Flex1">
+		<ui:attributes margins="{margins0500}" flex="1" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="boxLayoutDataMargins0">
+		<ui:attributes margins="{margins0}" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="boxLayoutDataMargins0Flex1">
+		<ui:attributes margins="{margins0}" flex="1" />
+	</ui:with>
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData"
+		field="boxLayoutDataMargins0Flex3">
+		<ui:attributes margins="{margins0}" flex="3" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="gridLayoutData">
+		<ui:attributes width="1" height="1" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="toolBarLayoutData">
+		<ui:attributes width="1" height="-1" />
+	</ui:with>
+
+	<ui:with
+		type="com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData"
+		field="checkboxLayoutData">
+		<ui:attributes width="-1" height="-1" />
+	</ui:with>
+
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.GridView"
+		field="viewType">
+		<ui:attributes stripeRows="true" forceFit="true"></ui:attributes>
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.GridView"
+		field="viewInst">
+		<ui:attributes stripeRows="true" forceFit="true"></ui:attributes>
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.GridView"
+		field="viewTemplate">
+		<ui:attributes stripeRows="true" forceFit="true"></ui:attributes>
+	</ui:with>
+	
+	<ui:with type="com.sencha.gxt.widget.core.client.grid.GridView"
+		field="viewReturn">
+		<ui:attributes stripeRows="true" forceFit="true"></ui:attributes>
+	</ui:with>
+
+	<g:ScrollPanel styleName="margin-10">
+		<gxt:ContentPanel headingText="Return registration"
+			pixelSize="1200, 600">
+			<container:BorderLayoutContainer>
+				<container:west layoutData="{westData}">
+					<container:VBoxLayoutContainer
+						ui:field="buttonBox" padding="{padding5}" vBoxLayoutAlign="STRETCH"
+						addStyleNames="x-toolbar-mark">
+						<container:child layoutData="{buttonBoxLayoutData}">
+							<button:ToggleButton ui:field="fiTypes"
+								allowDepress="false" text="FI Types" />
+						</container:child>
+						<container:child layoutData="{buttonBoxLayoutData}">
+							<button:ToggleButton ui:field="fi"
+								allowDepress="false" text="FI" />
+						</container:child>
+						<container:child layoutData="{buttonBoxLayoutData}">
+							<button:ToggleButton ui:field="templates"
+								allowDepress="false" text="Templates" />
+						</container:child>
+						<container:child layoutData="{buttonBoxLayoutData}">
+							<button:ToggleButton ui:field="returns"
+								allowDepress="false" text="Returns" />
+						</container:child>
+					</container:VBoxLayoutContainer>
+				</container:west>
+
+				<container:center layoutData="{centerData}">
+					<container:CardLayoutContainer ui:field="layout">
+						
+						<!-- Types -->						
+						<gxt:FramedPanel ui:field="typePanel" headerVisible="false" collapsible="true" addStyleNames="margin-10">
+							<container:VerticalLayoutContainer>
+								<container:child>
+									<button:ButtonBar>
+										<button:TextButton ui:field="addTypeButton" text="Add"/>
+										<button:TextButton ui:field="editTypeButton" text="Edit"/>
+										<button:TextButton ui:field="deleteTypeButton" text="Delete"/>
+									</button:ButtonBar>
+								</container:child>
+								<container:child layoutData="{gridLayoutData}">
+									<grid:Grid ui:field="gridInstType" cm="{cmType}" store="{storeType}"
+										view="{viewType}" loader="{loaderType}" loadMask="true"
+										columnReordering="true" borders="false" selectionModel="{smType}">
+									</grid:Grid>
+								</container:child>
+								<container:child>
+									<toolbar:PagingToolBar pageSize="50"
+										ui:field="typeToolBar"></toolbar:PagingToolBar>
+								</container:child>
+							</container:VerticalLayoutContainer>
+						</gxt:FramedPanel>
+						
+						<!-- Institutions -->						
+						<gxt:FramedPanel ui:field="instPanel" headerVisible="false" collapsible="true" addStyleNames="margin-10">
+							<container:VerticalLayoutContainer>
+								<container:child>
+									<button:ButtonBar>
+										<button:TextButton ui:field="addInstButton" text="Add"/>
+										<button:TextButton ui:field="editInstButton" text="Edit"/>
+										<button:TextButton ui:field="deleteInstButton" text="Delete"/>
+									</button:ButtonBar>
+								</container:child>
+								<container:child layoutData="{gridLayoutData}">
+									<grid:Grid ui:field="gridInst" cm="{cmInst}" store="{storeInst}"
+										view="{viewInst}" loader="{loaderInst}" loadMask="true"
+										columnReordering="true" borders="false" selectionModel="{smInst}">
+									</grid:Grid>
+								</container:child>
+								<container:child>
+									<toolbar:PagingToolBar pageSize="50"
+										ui:field="instToolBar"></toolbar:PagingToolBar>
+								</container:child>
+							</container:VerticalLayoutContainer>
+						</gxt:FramedPanel>
+						
+						<!-- Templates -->						
+						<gxt:FramedPanel ui:field="templatePanel" headerVisible="false" collapsible="true" addStyleNames="margin-10">
+							<container:VerticalLayoutContainer>
+								<container:child>
+									<button:ButtonBar>
+										<button:TextButton ui:field="addTemplateButton" text="Add"/>
+										<button:TextButton ui:field="editTemplateButton" text="Edit"/>
+										<button:TextButton ui:field="deleteTemplateButton" text="Delete"/>
+									</button:ButtonBar>
+								</container:child>
+								<container:child layoutData="{gridLayoutData}">
+									<grid:Grid ui:field="gridTemplate" cm="{cmTemplate}" store="{storeTemplate}"
+										view="{viewTemplate}" loader="{loaderTemplate}" loadMask="true"
+										columnReordering="true" borders="false" selectionModel="{smTemplate}">
+									</grid:Grid>
+								</container:child>
+								<container:child>
+									<toolbar:PagingToolBar pageSize="50"
+										ui:field="templateToolBar"></toolbar:PagingToolBar>
+								</container:child>
+							</container:VerticalLayoutContainer>
+						</gxt:FramedPanel>
+						
+						<!-- Returns -->						
+						<gxt:FramedPanel ui:field="returnPanel" headerVisible="false" collapsible="true" addStyleNames="margin-10">
+							<container:VerticalLayoutContainer>
+								<container:child>
+									<button:ButtonBar>
+										<button:TextButton ui:field="addReturnButton" text="Add"/>
+										<button:TextButton ui:field="editReturnButton" text="Edit"/>
+										<button:TextButton ui:field="deleteReturnButton" text="Delete"/>
+									</button:ButtonBar>
+								</container:child>
+								<container:child layoutData="{gridLayoutData}">
+									<grid:Grid ui:field="gridReturn" cm="{cmReturn}" store="{storeReturn}"
+										view="{viewReturn}" loader="{loaderReturn}" loadMask="true"
+										columnReordering="true" borders="false" selectionModel="{smReturn}">
+									</grid:Grid>
+								</container:child>
+								<container:child>
+									<toolbar:PagingToolBar pageSize="50"
+										ui:field="returnToolBar"></toolbar:PagingToolBar>
+								</container:child>
+							</container:VerticalLayoutContainer>
+						</gxt:FramedPanel>						
+					
+					</container:CardLayoutContainer>
+				</container:center>
+			</container:BorderLayoutContainer>
+		</gxt:ContentPanel>
+	</g:ScrollPanel>
+
+</ui:UiBinder>

@@ -1,0 +1,2 @@
+serviceClass: com.vamekh.client.InstitutionTypeService
+path: 94EFEE073B9750902F5EFD930A7505B7.gwt.rpc

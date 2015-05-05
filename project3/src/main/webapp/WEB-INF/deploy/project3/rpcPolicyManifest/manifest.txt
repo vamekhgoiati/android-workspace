@@ -1,0 +1,6 @@
+# Module project3
+# RPC service class, partial path of RPC policy file
+com.vamekh.client.TemplateService, 9507EC848760BA7DD1B84CB73A9006F1.gwt.rpc
+com.vamekh.client.ReturnService, 72455ADFE6EE6AACF099598022264821.gwt.rpc
+com.vamekh.client.InstitutionService, 241E3D3B0A9EFF1CE5CBC535AF425D9E.gwt.rpc
+com.vamekh.client.InstitutionTypeService, 94EFEE073B9750902F5EFD930A7505B7.gwt.rpc
