@@ -6,6 +6,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
@@ -18,26 +19,41 @@ import android.widget.RemoteViews;
 public class AlarmReciever extends BroadcastReceiver implements LocationListener{
 	
 	private static final String TAG = "com.myprojects.geocoordinatehistory.AlarmReciever";
+	public static final String INTENT_FILTER = "com.myprojects.geocoordinatehistory.AlarmReciever";
 	private static final int NOTIFICATION_ID = 1;
 	
 	private Location mCurrentLocation;
 	private LocationManager mLocationManager;
-	private Intent mGPSCoordinateIntent;
-	private PendingIntent mGPSCoordinatePendingIntent;
-
+	private DatabaseHelper mDbHelper;
+	
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		
 		mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+		mDbHelper = new DatabaseHelper(context);
 		
 		Log.d(TAG, "Broadcast recieved");
 		
 		if (mLocationManager != null) {
 			mCurrentLocation = getCurrentLocation();
 			if (mCurrentLocation != null) {
-				Log.d(TAG, "Latitude: " + mCurrentLocation.getLatitude() + "; Longtitude: " + mCurrentLocation.getLongitude());
+				insertLocation(mCurrentLocation);
+				Log.d(TAG, "Database insert --- Latitude: " + mCurrentLocation.getLatitude() + "; Longtitude: " + mCurrentLocation.getLongitude());
 			}
 		}
+		
+	}
+
+	private void insertLocation(Location currentLocation) {
+		
+		ContentValues values = new ContentValues();
+		
+		values.put(DatabaseHelper.LATITUDE, currentLocation.getLatitude());
+		values.put(DatabaseHelper.LONGTITUDE, currentLocation.getLongitude());
+		
+		mDbHelper.getWritableDatabase().insert(DatabaseHelper.TABLE_NAME, null, values);
+		
+		values.clear();
 		
 	}
 
@@ -51,7 +67,7 @@ public class AlarmReciever extends BroadcastReceiver implements LocationListener
 
 		for (String provider : matchingProviders) {
 
-			mLocationManager.requestLocationUpdates(provider, 4 * 1000L, 0f, this);	
+			mLocationManager.requestLocationUpdates(provider, 0, 0, this);	
 			
 			Location location = mLocationManager.getLastKnownLocation(provider);
 
