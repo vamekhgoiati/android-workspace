@@ -38,7 +38,7 @@ public class AlarmReciever extends BroadcastReceiver implements LocationListener
 			mCurrentLocation = getCurrentLocation();
 			if (mCurrentLocation != null) {
 				insertLocation(mCurrentLocation);
-				Log.d(TAG, "Database insert --- Latitude: " + mCurrentLocation.getLatitude() + "; Longtitude: " + mCurrentLocation.getLongitude());
+				Log.d(TAG, "Database insert --- Latitude: " + mCurrentLocation.getLatitude() + "; Longitude: " + mCurrentLocation.getLongitude());
 			}
 		}
 		
@@ -49,7 +49,7 @@ public class AlarmReciever extends BroadcastReceiver implements LocationListener
 		ContentValues values = new ContentValues();
 		
 		values.put(DatabaseHelper.LATITUDE, currentLocation.getLatitude());
-		values.put(DatabaseHelper.LONGTITUDE, currentLocation.getLongitude());
+		values.put(DatabaseHelper.LONGITUDE, currentLocation.getLongitude());
 		
 		mDbHelper.getWritableDatabase().insert(DatabaseHelper.TABLE_NAME, null, values);
 		

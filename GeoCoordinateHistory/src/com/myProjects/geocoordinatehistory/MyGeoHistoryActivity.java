@@ -1,5 +1,11 @@
 package com.myProjects.geocoordinatehistory;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -30,6 +36,10 @@ public class MyGeoHistoryActivity extends Activity {
 	private Button mStopButton;
 	private Button mDrawMapButton;
 	private Button mClearButton;
+	
+	private GoogleMap map;
+	private Polyline polyline;
+	private PolylineOptions polylineOptions;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,20 +93,31 @@ public class MyGeoHistoryActivity extends Activity {
 
 	private void drawRoute() {
 		
+		initializeMap();
+		
 		Cursor c = readLocations();
 		double latitude;
-		double longtitude;
+		double longitude;
 		
 		if (c.moveToFirst()) {
 			do {
 				latitude = c.getDouble(c.getColumnIndex(DatabaseHelper.LATITUDE));
-				longtitude = c.getDouble(c.getColumnIndex(DatabaseHelper.LONGTITUDE));
-				Log.d(TAG, "Latitude : " + latitude + "; Longtitude : " + longtitude);
+				longitude = c.getDouble(c.getColumnIndex(DatabaseHelper.LONGITUDE));
+				polylineOptions.add(new LatLng(latitude, longitude));
+				Log.d(TAG, "Latitude : " + latitude + "; Longtitude : " + longitude);
 			} while (c.moveToNext());
 		}
 		
 		c.close();
 		
+		polyline = map.addPolyline(polylineOptions);
+		
+	}
+
+	private void initializeMap() {
+		if (map == null) {
+			map = ((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
+		}
 	}
 
 	private Cursor readLocations() {
