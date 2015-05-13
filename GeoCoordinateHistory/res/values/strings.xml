@@ -7,5 +7,6 @@
     <string name="start_button_text">Start</string>
     <string name="stop_button_text">Stop</string>
     <string name="draw_map_text">Draw map</string>
+    <string name="clear_button_text">Clear</string>
 
 </resources>
