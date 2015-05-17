@@ -125,12 +125,17 @@ public class ButtonsViewFragment extends Fragment {
 		
 		c.close();
 		
-		mMapFragment = new MyMapFragment(mPolylineOptions);
-		//map = mMapFragment.getMap();
-		FragmentTransaction fragmentTransaction =
-		         getFragmentManager().beginTransaction();
-		 fragmentTransaction.replace(R.id.fragment_container, mMapFragment);
-		 fragmentTransaction.addToBackStack(null).commit();
+		
+		Intent intent = new Intent(mContext, MapActivity.class);
+		intent.putExtra(MapActivity.MAP_EXTRA, mPolylineOptions);
+		startActivity(intent);
+		
+//		mMapFragment = new MyMapFragment(mPolylineOptions);
+//		//map = mMapFragment.getMap();
+//		FragmentTransaction fragmentTransaction =
+//		         getFragmentManager().beginTransaction();
+//		 fragmentTransaction.replace(R.id.fragment_container, mMapFragment);
+//		 fragmentTransaction.addToBackStack(null).commit();
 		
 	}
 

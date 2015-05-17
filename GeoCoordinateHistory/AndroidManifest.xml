@@ -35,6 +35,9 @@
         <receiver android:name="com.myProjects.geocoordinatehistory.AlarmReciever"
             android:exported="false">
         </receiver>
+        <activity 
+            android:name=".MapActivity">
+        </activity>
     </application>
 
 </manifest>
