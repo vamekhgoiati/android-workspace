@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">P2 - Assignment 3</string>
+    <string name="app_name">Weather Service App</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="location_hint">Enter location</string>
+    <string name="get_weather_sync_text">Get weather sync</string>
+	<string name="get_weather_async_text">Get weather async</string>
 </resources>

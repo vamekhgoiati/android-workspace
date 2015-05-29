@@ -4,9 +4,41 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
+    <EditText 
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""/>
+    
+    <LinearLayout 
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/location">
+        
+        <Button 
+            android:id="@+id/get_weather_sync_button"
+            android:layout_height="wrap_content"
+            android:layout_width="1dp"
+            android:layout_weight="1"
+            android:text="@string/get_weather_sync_text"/>
+        
+        <Button 
+            android:id="@+id/get_weather_async_button"
+            android:layout_height="wrap_content"
+            android:layout_width="1dp"
+            android:layout_weight="1"
+            android:text="@string/get_weather_async_text"/>
+        
+    </LinearLayout>
+    
+    <!-- <TextView 
+        android:id="@+id/temp"/>
+            
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/hello_world" /> -->
 
 </RelativeLayout>

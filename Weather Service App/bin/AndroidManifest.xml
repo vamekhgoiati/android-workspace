@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.p2_assignment3"
+    package="com.coursera.posa"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -8,6 +8,8 @@
         android:minSdkVersion="17"
         android:targetSdkVersion="22" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
