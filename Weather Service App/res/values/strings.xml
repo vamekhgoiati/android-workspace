@@ -11,4 +11,6 @@
 	<string name="humidity_text">Humidity:</string>
 	<string name="sunrise_text">Sunrise:</string>
 	<string name="sunset_text">Sunset:</string>
+	<string name="type_location_message">Please type location</string>
+	<string name="no_weather_data_message">No weather data for location</string>
 </resources>

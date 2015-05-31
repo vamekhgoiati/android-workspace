@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import android.util.JsonReader;
+import android.util.Log;
 
 public class WeatherJsonParser {
 
@@ -48,6 +49,9 @@ public class WeatherJsonParser {
 				case JsonWeather.name_JSON:
 					weather.setName(reader.nextString());
 					break;
+				case JsonWeather.weather_JSON:
+					setWeatherValues(reader);
+					break;
 				default:
 					reader.skipValue();
 					break;
@@ -58,7 +62,33 @@ public class WeatherJsonParser {
 			reader.endObject();
 		}
 
+		Log.i(TAG, "parsing finished");
+		
 		return weather;
+	}
+
+	private void setWeatherValues(JsonReader reader) throws IOException{
+		
+		try {
+			reader.beginArray();
+			reader.beginObject();
+			
+			while(reader.hasNext()) {
+				String name = reader.nextName();
+				switch (name) {
+					case JsonWeather.icon_JSON:
+						weather.setWeatherIcon(reader.nextString());
+						break;
+					default:
+						reader.skipValue();
+				}
+			}
+			
+		} finally {
+			reader.endObject();
+			reader.endArray();
+		}
+		
 	}
 
 	private void setWindValues(JsonReader reader) throws IOException {

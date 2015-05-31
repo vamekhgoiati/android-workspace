@@ -1,5 +1,7 @@
 package com.coursera.posa.json;
 
+import android.graphics.Bitmap;
+
 public class JsonWeather {
 
 	public static final String sys_JSON = "sys";
@@ -12,6 +14,8 @@ public class JsonWeather {
 	public static final String deg_JSON = "deg";
 	public static final String humidity_JSON = "humidity";
 	public static final String temp_JSON = "temp";
+	public static final String weather_JSON = "weather";
+	public static final String icon_JSON = "icon";
 
 	private String mName;
 	private double mSpeed;
@@ -20,6 +24,7 @@ public class JsonWeather {
 	private long mHumidity;
 	private long mSunrise;
 	private long mSunset;
+	private String mWeatherIcon;
 
 	public JsonWeather() {
 
@@ -90,6 +95,14 @@ public class JsonWeather {
 
 	public void setSunset(long sunset) {
 		this.mSunset = sunset;
+	}
+
+	public String getWeatherIcon() {
+		return mWeatherIcon;
+	}
+
+	public void setWeatherIcon(String weatherIcon) {
+		this.mWeatherIcon = weatherIcon;
 	}
 
 }

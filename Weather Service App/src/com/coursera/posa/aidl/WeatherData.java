@@ -1,5 +1,9 @@
 package com.coursera.posa.aidl;
 
+import com.coursera.posa.json.JsonWeather;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -44,6 +48,7 @@ public class WeatherData implements Parcelable {
     private long mHumidity;
     private long mSunrise;
     private long mSunset;
+    private Bitmap mIcon;
 
     /**
      * Constructor
@@ -62,7 +67,8 @@ public class WeatherData implements Parcelable {
                        double temp,
                        long humidity,
                        long sunrise,
-                       long sunset) {
+                       long sunset,
+                       Bitmap icon) {
         mName = name;
         mSpeed = speed;
         mDeg = deg;
@@ -70,9 +76,86 @@ public class WeatherData implements Parcelable {
         mHumidity = humidity;
         mSunrise = sunrise;
         mSunset = sunset;
+        setIcon(icon);
     }
+    
+    public WeatherData(JsonWeather weather) {
+    	mName = weather.getName();
+        mSpeed = weather.getSpeed();
+        mDeg = weather.getDeg();
+        mTemp = weather.getTemp();
+        mHumidity = weather.getHumidity();
+        mSunrise = weather.getSunrise();
+        mSunset = weather.getSunset();
+    }
+    
+    
 
-    /**
+    public String getName() {
+		return mName;
+	}
+
+	public void setName(String mName) {
+		this.mName = mName;
+	}
+
+	public double getSpeed() {
+		return mSpeed;
+	}
+
+	public void setSpeed(double mSpeed) {
+		this.mSpeed = mSpeed;
+	}
+
+	public double getDeg() {
+		return mDeg;
+	}
+
+	public void setDeg(double mDeg) {
+		this.mDeg = mDeg;
+	}
+
+	public double getTemp() {
+		return mTemp;
+	}
+
+	public void setTemp(double mTemp) {
+		this.mTemp = mTemp;
+	}
+
+	public long getHumidity() {
+		return mHumidity;
+	}
+
+	public void setHumidity(long mHumidity) {
+		this.mHumidity = mHumidity;
+	}
+
+	public long getSunrise() {
+		return mSunrise;
+	}
+
+	public void setSunrise(long mSunrise) {
+		this.mSunrise = mSunrise;
+	}
+
+	public long getSunset() {
+		return mSunset;
+	}
+
+	public void setSunset(long mSunset) {
+		this.mSunset = mSunset;
+	}
+	
+	public Bitmap getIcon() {
+		return mIcon;
+	}
+
+	public void setIcon(Bitmap mIcon) {
+		this.mIcon = mIcon;
+	}
+
+	/**
      * Provides a printable representation of this object.
      */
     @Override
@@ -111,6 +194,7 @@ public class WeatherData implements Parcelable {
         dest.writeLong(mHumidity);
         dest.writeLong(mSunrise);
         dest.writeLong(mSunset);
+        dest.writeValue(mIcon);
     }
 
     /**
@@ -130,9 +214,10 @@ public class WeatherData implements Parcelable {
         mHumidity = in.readLong();
         mSunrise = in.readLong();
         mSunset = in.readLong();
+        mIcon = (Bitmap) in.readValue(Bitmap.class.getClassLoader());
     }
 
-    /**
+	/**
      * public Parcelable.Creator for WeatherData, which is an
      * interface that must be implemented and provided as a public
      * CREATOR field that generates instances of your Parcelable class
