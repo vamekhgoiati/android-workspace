@@ -16,6 +16,7 @@ public class JsonWeather {
 	public static final String temp_JSON = "temp";
 	public static final String weather_JSON = "weather";
 	public static final String icon_JSON = "icon";
+	public static final String cod_JSON = "cod";
 
 	private String mName;
 	private double mSpeed;

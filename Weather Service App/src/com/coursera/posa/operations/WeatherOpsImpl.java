@@ -337,16 +337,21 @@ public class WeatherOpsImpl implements WeatherOps {
 		
 		@Override
 		public void sendResults(final List<WeatherData> results) throws RemoteException {
-			if (results != null && !results.isEmpty()) {
-				mActivity.get().runOnUiThread(new Runnable() {
-					
-					@Override
-					public void run() {
+			mActivity.get().runOnUiThread(new Runnable() {
+				
+				@Override
+				public void run() {
+					if (results != null && !results.isEmpty()) {
 						updateCache(results);
 						setResults(results);
+					} else {
+						Utils.showToast(mActivity.get(),
+								mActivity.get().
+									getResources().
+									getString(R.string.no_weather_data_message));
 					}
-				});
-			}
+				}
+			}); 
 		}
 	};
 

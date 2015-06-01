@@ -52,6 +52,11 @@ public class WeatherJsonParser {
 				case JsonWeather.weather_JSON:
 					setWeatherValues(reader);
 					break;
+				case JsonWeather.cod_JSON:
+					String code = reader.nextString();
+					if (!code.equals("200"))
+						return null;
+					break;
 				default:
 					reader.skipValue();
 					break;

@@ -19,14 +19,10 @@ public class WeatherServiceAsync extends LifecycleLoggingService {
 		return new Intent(context, WeatherServiceAsync.class);
 	}
 	
-	
-	
 	@Override
 	public IBinder onBind(Intent intent) {
 		return mWeatherRequestImpl;
 	}
-
-
 
 	WeatherRequest.Stub mWeatherRequestImpl = new WeatherRequest.Stub() {
 		
